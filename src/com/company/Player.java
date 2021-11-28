@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Map;
+
 public class Player {
     private String name;
     private int currentPosition;
@@ -48,11 +50,33 @@ public class Player {
         this.unluckyRolls = unluckyRolls;
     }
 
-    public int getLuckyRolls() {
-        return luckyRolls;
+    public void increaseCountOfUnluckyRoll() {
+        this.unluckyRolls = this.unluckyRolls + 1;
     }
 
-    public void setLuckyRolls(int luckyRolls) {
-        this.luckyRolls = luckyRolls;
+    public void increaseLuckyRollCount() {
+        this.luckyRolls = this.luckyRolls + 1;
+    }
+
+    public void setCurrentPositionBasedOnRoll(int roll, Board board, SimulatorStats simulatorStats){
+        final Map<Integer, Integer> snakesAndLadders = board.getSnakesAndLadders();
+        if (currentPosition + roll <= 100) {
+            currentPosition = currentPosition + roll;
+        }
+        if (snakesAndLadders.containsKey(currentPosition)) {
+            Integer nextPosition = snakesAndLadders.get(currentPosition);
+            if (currentPosition > nextPosition) {
+                this.unluckyRolls = this.unluckyRolls + 1;
+                simulatorStats.getSlides().add(currentPosition-nextPosition);
+            } else {
+                this.luckyRolls = this.luckyRolls + 1;
+                simulatorStats.getClimbs().add(nextPosition-currentPosition);
+            }
+            currentPosition = nextPosition;
+        }
+        if (currentPosition == 100) {
+            simulatorStats.setWinner(this);
+            board.setFinished(true);
+        }
     }
 }

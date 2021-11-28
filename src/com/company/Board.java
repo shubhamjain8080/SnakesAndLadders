@@ -1,37 +1,38 @@
 package com.company;
 
-import java.util.ArrayList;
+import com.sun.java.swing.action.AboutAction;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Board {
 
-    private Map<Integer, Integer> snakes = new HashMap<>();
-    private Map<Integer, Integer> ladders = new HashMap<>();
-    private List<Player> players = new ArrayList<>();
+    private Map<Integer, Integer> snakesAndLadders = new HashMap<>();
+    private boolean finished = false;
 
-    public Map<Integer, Integer> getSnakes() {
-        return snakes;
+    public boolean isFinished() {
+        return finished;
     }
 
-    public void setSnakes(Map<Integer, Integer> snakes) {
-        this.snakes = snakes;
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
-    public List<Player> getPlayers() {
-        return players;
+    public Map<Integer, Integer> getSnakesAndLadders() {
+        return snakesAndLadders;
     }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
+    public void setSnakesAndLadders(Map<Integer, Integer> snakesAndLadders) {
+        this.snakesAndLadders = snakesAndLadders;
     }
 
-    public Map<Integer, Integer> getLadders() {
-        return ladders;
+    public void addSnakesOrLadderPosition(int key, int value) {
+        snakesAndLadders.put(key, value);
     }
 
-    public void setLadders(Map<Integer, Integer> ladders) {
-        this.ladders = ladders;
+    public boolean doesSnakeOrLadderExistAtPosition(int key, int value) {
+        return snakesAndLadders.containsKey(key) || snakesAndLadders.containsValue(key) ||
+                snakesAndLadders.containsKey(value) || snakesAndLadders.containsValue(value);
     }
 }
