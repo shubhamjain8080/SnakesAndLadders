@@ -48,10 +48,9 @@ public class Main {
             i = (i + 1) % numberOfPlayers;
         }
 
-        System.out.println("Max Slide : " + simulatorStats.getMaxSlide());
-        System.out.println("Max Climb : " + simulatorStats.getMaxClimb());
-        System.out.println("Max roll : " + simulatorStats.getMaximumRolls());
-        System.out.println("Max roll count : " + simulatorStats.getMaxRollCount());
         System.out.println("Winner : " + simulatorStats.getWinner().getName());
+        StatsUtil.displaySingleTurnExclusiveStats(simulatorStats);
+        StatsUtil.displayMaxMinAvgSlideAndClimb(players);
     }
+
 }

@@ -5,29 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SimulatorStats {
-    private List<Integer> climbs = new ArrayList<>();
-    private List<Integer> slides = new ArrayList<>();
     private Player winner;
     private List<Integer> maximumRolls = new LinkedList<>();
     private int maxRollCount = 0;
     private int maxClimb = 0;
     private int maxSlide = 0;
-
-    public List<Integer> getClimbs() {
-        return climbs;
-    }
-
-    public void setClimbs(List<Integer> climbs) {
-        this.climbs = climbs;
-    }
-
-    public List<Integer> getSlides() {
-        return slides;
-    }
-
-    public void setSlides(List<Integer> slides) {
-        this.slides = slides;
-    }
 
     public Player getWinner() {
         return winner;
