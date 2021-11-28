@@ -63,20 +63,40 @@ public class Player {
         if (currentPosition + roll <= 100) {
             currentPosition = currentPosition + roll;
         }
-        if (snakesAndLadders.containsKey(currentPosition)) {
-            Integer nextPosition = snakesAndLadders.get(currentPosition);
-            if (currentPosition > nextPosition) {
-                this.unluckyRolls = this.unluckyRolls + 1;
-                simulatorStats.getSlides().add(currentPosition-nextPosition);
-            } else {
-                this.luckyRolls = this.luckyRolls + 1;
-                simulatorStats.getClimbs().add(nextPosition-currentPosition);
+        final Map<Integer, Integer> snakes = board.getSnakes();
+        if (snakes.containsKey(currentPosition)) {
+            slidePlayer(simulatorStats, snakes);
+        }
+        else {
+            Map<Integer, Integer> ladders = board.getLadders();
+            if (ladders.containsKey(currentPosition)){
+                climbPlayer(simulatorStats, ladders);
             }
-            currentPosition = nextPosition;
+            else if (didMissSnake(snakes)){
+                this.luckyRolls = this.luckyRolls + 1;
+            }
         }
         if (currentPosition == 100) {
             simulatorStats.setWinner(this);
             board.setFinished(true);
         }
+    }
+
+    private boolean didMissSnake(Map<Integer, Integer> snakes) {
+        return snakes.containsKey(currentPosition - 1) || snakes.containsKey(currentPosition - 2);
+    }
+
+    private void climbPlayer(SimulatorStats simulatorStats, Map<Integer, Integer> ladders) {
+        Integer nextPosition = ladders.get(currentPosition);
+        this.luckyRolls = this.luckyRolls + 1;
+        simulatorStats.getClimbs().add(nextPosition-currentPosition);
+        currentPosition = nextPosition;
+    }
+
+    private void slidePlayer(SimulatorStats simulatorStats, Map<Integer, Integer> snakes) {
+        Integer nextPosition = snakes.get(currentPosition);
+        this.unluckyRolls = this.unluckyRolls + 1;
+        simulatorStats.getSlides().add(currentPosition-nextPosition);
+        currentPosition = nextPosition;
     }
 }
