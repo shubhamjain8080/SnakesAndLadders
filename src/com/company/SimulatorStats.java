@@ -1,12 +1,11 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class SimulatorStats {
     private Player winner;
-    private List<Integer> maximumRolls = new LinkedList<>();
+    private List<Integer> maximumRollsInOneTurn = new LinkedList<>();
     private int maxRollCount = 0;
     private int maxClimb = 0;
     private int maxSlide = 0;
@@ -19,36 +18,20 @@ public class SimulatorStats {
         this.winner = winner;
     }
 
-    public List<Integer> getMaximumRolls() {
-        return maximumRolls;
-    }
-
-    public void setMaximumRolls(List<Integer> maximumRolls) {
-        this.maximumRolls = maximumRolls;
+    public List<Integer> getMaximumRollsInOneTurn() {
+        return maximumRollsInOneTurn;
     }
 
     public int getMaxRollCount() {
         return maxRollCount;
     }
 
-    public void setMaxRollCount(int maxRollCount) {
-        this.maxRollCount = maxRollCount;
-    }
-
     public int getMaxClimb() {
         return maxClimb;
     }
 
-    public void setMaxClimb(int maxClimb) {
-        this.maxClimb = maxClimb;
-    }
-
     public int getMaxSlide() {
         return maxSlide;
-    }
-
-    public void setMaxSlide(int maxSlide) {
-        this.maxSlide = maxSlide;
     }
 
     public void replaceRollInCaseBigger(List<Integer> rolls) {
@@ -56,8 +39,8 @@ public class SimulatorStats {
         for (Integer roll: rolls) {
             sum = sum + roll;
         }
-        if (maximumRolls.isEmpty() || maxRollCount < sum){
-            maximumRolls = rolls;
+        if (maximumRollsInOneTurn.isEmpty() || maxRollCount < sum){
+            maximumRollsInOneTurn = rolls;
             maxRollCount = sum;
         }
     }

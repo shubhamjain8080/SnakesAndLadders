@@ -49,6 +49,7 @@ public class Main {
         }
 
         System.out.println("Winner : " + simulatorStats.getWinner().getName());
+        System.out.println("Rolls to win the game : " + simulatorStats.getWinner().getNumberOfRolls());
         StatsUtil.displaySingleTurnExclusiveStats(simulatorStats);
         StatsUtil.displayMaxMinAvgSlideAndClimb(players);
     }

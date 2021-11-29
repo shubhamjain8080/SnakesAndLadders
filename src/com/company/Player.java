@@ -8,26 +8,8 @@ public class Player {
     private int totalClimb = 0;
     private int totalSlide = 0;
     private int currentPosition;
-    private String positionString;
-    private String rollString;
     private int unluckyRolls = 0;
     private int luckyRolls = 0;
-
-    public String getRollString() {
-        return rollString;
-    }
-
-    public void setRollString(String rollString) {
-        this.rollString = rollString;
-    }
-
-    public String getPositionString() {
-        return positionString;
-    }
-
-    public void setPositionString(String positionString) {
-        this.positionString = positionString;
-    }
 
     public String getName() {
         return name;
@@ -49,40 +31,20 @@ public class Player {
         return unluckyRolls;
     }
 
-    public void setUnluckyRolls(int unluckyRolls) {
-        this.unluckyRolls = unluckyRolls;
-    }
-
     public int getNumberOfRolls() {
         return numberOfRolls;
-    }
-
-    public void setNumberOfRolls(int numberOfRolls) {
-        this.numberOfRolls = numberOfRolls;
     }
 
     public int getTotalClimb() {
         return totalClimb;
     }
 
-    public void setTotalClimb(int totalClimb) {
-        this.totalClimb = totalClimb;
-    }
-
     public int getTotalSlide() {
         return totalSlide;
     }
 
-    public void setTotalSlide(int totalSlide) {
-        this.totalSlide = totalSlide;
-    }
-
     public int getLuckyRolls() {
         return luckyRolls;
-    }
-
-    public void setLuckyRolls(int luckyRolls) {
-        this.luckyRolls = luckyRolls;
     }
 
     public void setCurrentPositionBasedOnRoll(int roll, Board board, SimulatorStats simulatorStats){

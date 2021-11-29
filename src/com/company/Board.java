@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Board {
 
-    private Map<Integer, Integer> snakesAndLadders = new HashMap<>();
     private Map<Integer, Integer> snakes = new HashMap<>();
     private Map<Integer, Integer> ladders = new HashMap<>();
     private boolean finished = false;
@@ -18,32 +17,12 @@ public class Board {
         this.finished = finished;
     }
 
-    public Map<Integer, Integer> getSnakesAndLadders() {
-        return snakesAndLadders;
-    }
-
-    public void setSnakesAndLadders(Map<Integer, Integer> snakesAndLadders) {
-        this.snakesAndLadders = snakesAndLadders;
-    }
-
     public Map<Integer, Integer> getSnakes() {
         return snakes;
     }
 
-    public void setSnakes(Map<Integer, Integer> snakes) {
-        this.snakes = snakes;
-    }
-
     public Map<Integer, Integer> getLadders() {
         return ladders;
-    }
-
-    public void setLadders(Map<Integer, Integer> ladders) {
-        this.ladders = ladders;
-    }
-
-    public void addSnakesOrLadderPosition(int key, int value) {
-        snakesAndLadders.put(key, value);
     }
 
     public boolean doesSnakeOrLadderExistAtPosition(int key, int value) {

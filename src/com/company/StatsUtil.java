@@ -41,7 +41,7 @@ public class StatsUtil {
     public static void displaySingleTurnExclusiveStats(SimulatorStats simulatorStats) {
         System.out.println("Max Slide in one turn : " + simulatorStats.getMaxSlide());
         System.out.println("Max Climb in one turn : " + simulatorStats.getMaxClimb());
-        System.out.println("Max roll in one turn: " + simulatorStats.getMaximumRolls());
+        System.out.println("Max roll in one turn: " + simulatorStats.getMaximumRollsInOneTurn());
         System.out.println("Max roll count in one turn: " + simulatorStats.getMaxRollCount());
     }
 }
