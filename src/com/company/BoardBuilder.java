@@ -7,7 +7,6 @@ public class BoardBuilder {
     private static Board board = new Board();
 
     public static Board buildBoard(){
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Please add snakes' and ladders' positions : ");
         System.out.println(Constants.SNAKE_LADDER_OPTIONS);
         int option = scanner.nextInt();
@@ -26,7 +25,7 @@ public class BoardBuilder {
         }
         return board;
     }
-    public static void createLadderOnBoard() {
+    private static void createLadderOnBoard() {
         System.out.println("Enter the bottom position of ladder : ");
         int bottom = scanner.nextInt();
         System.out.println("Enter the top position of ladder: ");
@@ -43,7 +42,7 @@ public class BoardBuilder {
         }
     }
 
-    public static void createSnakeOnBoard() {
+    private static void createSnakeOnBoard() {
         System.out.println("Enter the position of head of Snake : ");
         int headOfSnake = scanner.nextInt();
         System.out.println("Enter the position of tail of Snake : ");

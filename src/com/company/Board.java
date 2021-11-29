@@ -26,8 +26,10 @@ public class Board {
     }
 
     public boolean doesSnakeOrLadderExistAtPosition(int key, int value) {
-        return snakes.containsKey(key) || ladders.containsValue(key) ||
-                snakes.containsKey(value) || ladders.containsValue(value);
+        return snakes.containsKey(key) || ladders.containsKey(key) ||
+                snakes.containsValue(key) || ladders.containsValue(key) ||
+                snakes.containsKey(value) || ladders.containsKey(value) ||
+                snakes.containsValue(value) || ladders.containsValue(value);
     }
 
     public void createSnakeOnBoard(int headOfSnake, int tailOfSnake) {
