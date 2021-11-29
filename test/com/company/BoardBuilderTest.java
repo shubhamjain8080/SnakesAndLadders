@@ -48,8 +48,6 @@ class BoardBuilderTest {
     public void testShouldNotCreateLadderWithBottomBiggerThanTop(){
         InputStream sysInBackup = System.in;
         ByteArrayInputStream in = new ByteArrayInputStream("2\n34\n21\n3".getBytes());
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(byteArrayOutputStream);
         System.setIn(in);
         Board board = BoardBuilder.buildBoard();
         Assert.assertEquals(0, board.getLadders().size());

@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Constants {
+    public static Scanner scanner = new Scanner(System.in);
     public static final String SNAKE_LADDER_ALREADY_EXIST =
             "There is already snake/ladder at this position. Please select the option again and proceed with values.";
     public static final String VALUE_NOT_IN_RANGE =
